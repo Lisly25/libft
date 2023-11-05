@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:41:17 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/01 14:10:31 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/05 11:00:58 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	count_frags(char const *s, char c)
 	count = 1;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0' && i != 0)
 			count++;
 		i++;
 	}
@@ -82,7 +82,7 @@ char	**ft_split(char const *s, char c)
 			while (s[i] != c && s[i] != '\0')
 				i++;
 		}
-		if (s[i] == c)
+		if (s[i] == c && s[i] != '\0')
 			i++;
 	}
 	result[j] = NULL;

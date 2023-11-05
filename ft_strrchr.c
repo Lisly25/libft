@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 09:48:01 by skorbai           #+#    #+#             */
-/*   Updated: 2023/10/31 11:47:56 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/05 09:08:23 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	i = 0;
 	j = 0;
+	c = (char) c;
 	result = (char *)s;
 	if (is_c_included(result, c) == 1)
 	{

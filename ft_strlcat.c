@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 10:20:23 by skorbai           #+#    #+#             */
-/*   Updated: 2023/10/31 11:47:29 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/03 15:09:31 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,28 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
-	size_t	j;
-	size_t	dst_len;
-	size_t	src_len;
-	size_t	dstsize_original;
+	size_t		i;
 
 	i = 0;
-	dstsize_original = dstsize;
-	dst_len = ft_strlen(dst);
-	j = dst_len ;
-	src_len = ft_strlen(src);
-	if (dstsize == 0)
-		return (src_len);
-	while (((dstsize - dst_len) - 1) > 0)
+	if (ft_strlen(dst) >= dstsize)
+		return (dstsize + ft_strlen(src));
+	while (*dst != '\0')
 	{
-		dst[j++] = src[i++];
-		dstsize--;
+		dst++;
+		i++;
 	}
-	if (dstsize_original != 0)
-		dst[j] = '\0';
-	return (dst_len + src_len);
+	while (i + 1 < dstsize && *src != '\0')
+	{
+		*dst = *src;
+		src++;
+		dst++;
+		i++;
+	}
+	*dst = '\0';
+	while (*src != '\0')
+	{
+		src++;
+		i++;
+	}
+	return (i);
 }

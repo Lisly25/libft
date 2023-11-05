@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 11:32:57 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/01 15:00:25 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/03 16:00:38 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,17 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*buffer;
-	size_t	i;
-	void	*result;
+	unsigned char	*buffer;
 
-	buffer = (char *) s;
-	i = 0;
-	while (i < n && *buffer != '\0')
+	buffer = (unsigned char *) s;
+	while (n > 0)
 	{
-		if (*buffer == c)
+		if (*buffer == (unsigned char) c)
 		{
-			result = buffer;
-			return (result);
+			return (buffer);
 		}
 		buffer++;
-		i++;
+		n--;
 	}
-	result = NULL;
-	return (result);
+	return (NULL);
 }
