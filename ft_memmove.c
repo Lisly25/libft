@@ -6,11 +6,10 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:20 by skorbai           #+#    #+#             */
-/*   Updated: 2023/10/31 15:07:51 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/06 16:47:09 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 static	int	do_strs_overlap(char *dst, char *src)

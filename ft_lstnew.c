@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 15:45:42 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/06 16:35:28 by skorbai          ###   ########.fr       */
+/*   Created: 2023/11/06 10:32:01 by skorbai           #+#    #+#             */
+/*   Updated: 2023/11/06 12:05:06 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-size_t	ft_strlen(const char *s)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
+	t_list	*linked_list;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	linked_list = malloc(sizeof (t_list));
+	linked_list->content = content;
+	linked_list->next = NULL;
+	return (linked_list);
 }

@@ -6,15 +6,14 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:17:27 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/02 13:47:37 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/07 12:49:41 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <stdbool.h>
 #include "libft.h"
 
-static	bool	is_all_of_needle(char *h_stack, const char *n, size_t len)
+static int	is_all_of_needle(char *h_stack, const char *n, size_t len)
 {
 	size_t	i;
 
@@ -25,9 +24,9 @@ static	bool	is_all_of_needle(char *h_stack, const char *n, size_t len)
 		len--;
 	}
 	if (i == ft_strlen(n))
-		return (true);
+		return (1);
 	else
-		return (false);
+		return (0);
 }
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
@@ -41,7 +40,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		if (*result == needle[0])
 		{
-			if (is_all_of_needle(result, needle, len) == true)
+			if (is_all_of_needle(result, needle, len) == 1)
 				return (result);
 		}
 		result++;

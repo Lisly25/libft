@@ -6,12 +6,11 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:40:42 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/02 12:55:44 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:09:23 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <stdlib.h>
 #include "libft.h"
 
 static	int	get_num_size(int n)

@@ -6,11 +6,9 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:54:39 by skorbai           #+#    #+#             */
-/*   Updated: 2023/10/24 12:07:36 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/06 16:24:13 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isdigit(int c)
 {

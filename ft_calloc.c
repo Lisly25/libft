@@ -6,30 +6,35 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:29:14 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/06 10:06:09 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/07 18:06:19 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
+//The max size is INT_MAX squared minus 1
+
 void	*ft_calloc(size_t count, size_t size)
 {
-	void			*ptr;
+	char			*ptr;
 	int				i;
-	char			*buffer;
 	size_t			malloc_size;
+	size_t			max_size;
 
 	i = 0;
-	malloc_size = size * count;
-	if (count != 0 && (malloc_size / count != size))
+	max_size = 4611686014132420608;
+	if (count != 0 && (max_size / count) < size)
 		return (NULL);
+	if ((size == 0 && count == 0) || size == 0 || count == 0)
+		malloc_size = 1;
+	else
+		malloc_size = count * size;
 	ptr = malloc(malloc_size);
 	if (ptr == NULL)
 		return (NULL);
-	buffer = (char *) ptr;
 	while (malloc_size != 0)
 	{
-		buffer[i] = 0;
+		ptr[i] = 0;
 		i++;
 		malloc_size--;
 	}

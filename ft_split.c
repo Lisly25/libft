@@ -6,14 +6,14 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:41:17 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/05 11:00:58 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:04:52 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stddef.h>
 
-int	count_frags(char const *s, char c)
+static int	count_frags(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -29,7 +29,7 @@ int	count_frags(char const *s, char c)
 	return (count);
 }
 
-int	count_frag_len(char const *s, int i, char c)
+static int	count_frag_len(char const *s, int i, char c)
 {
 	int	len;
 
@@ -42,7 +42,7 @@ int	count_frag_len(char const *s, int i, char c)
 	return (len);
 }
 
-char	*split_strdup(char const *s, char c, int j)
+static char	*split_strdup(char const *s, char c, int j)
 {
 	char	*copy;
 	char	*buffer;

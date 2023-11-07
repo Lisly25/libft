@@ -6,11 +6,10 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 10:52:10 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/01 11:17:23 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/07 15:11:05 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stddef.h>
 #include "libft.h"
 

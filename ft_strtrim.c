@@ -6,11 +6,10 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:05:59 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/01 10:48:33 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/07 14:52:30 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 static	int	is_c_in_s(const char *str, char c)

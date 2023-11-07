@@ -6,22 +6,45 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:10:02 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/01 17:00:58 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/07 16:44:39 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
+#include <stdio.h>
+
+static int	str_to_num(char *str, int i, int is_neg)
+{
+	long	result;
+
+	result = 0;
+	while (str[i] >= '0' && str[i] <= '9' && str[i] != '\0')
+	{
+		if (result >= LONG_MAX / 10 && (result > LONG_MAX / 10 || \
+		(str[i] - '0') > LONG_MAX % 10))
+		{
+			if (is_neg == 1)
+				return (0);
+			if (is_neg == 0)
+				return (-1);
+		}
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	if (is_neg == 1)
+		result = 0 - result;
+	return ((int) result);
+}
 
 int	ft_atoi(const char *str)
 {
 	int		result;
-	char	*buffer;
 	int		i;
 	int		is_neg;
 
 	i = 0;
 	result = 0;
-	buffer = (char *) str;
 	is_neg = 0;
 	while (str[i] != '\0' && (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13)))
 		i++;
@@ -31,12 +54,6 @@ int	ft_atoi(const char *str)
 			is_neg = 1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9' && str[i != '\0'])
-	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
-	}
-	if (is_neg == 1)
-		result = 0 - result;
+	result = str_to_num((char *)str, i, is_neg);
 	return (result);
 }
