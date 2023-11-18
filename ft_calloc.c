@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:29:14 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/07 18:06:19 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/08 16:00:49 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ void	*ft_calloc(size_t count, size_t size)
 	max_size = 4611686014132420608;
 	if (count != 0 && (max_size / count) < size)
 		return (NULL);
-	if ((size == 0 && count == 0) || size == 0 || count == 0)
-		malloc_size = 1;
-	else
-		malloc_size = count * size;
+	malloc_size = count * size;
 	ptr = malloc(malloc_size);
 	if (ptr == NULL)
 		return (NULL);

@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 11:59:07 by skorbai           #+#    #+#              #
-#    Updated: 2023/11/01 13:23:33 by skorbai          ###   ########.fr        #
+#    Updated: 2023/11/08 17:06:22 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ C_FLAGS = -Wall -Wextra -Werror
 AR = ar
 
 AR_FLAGS = -rs
+
+BONUS_AR_FLAGS = -rus
 
 LIB_NAME = libft.a
 
@@ -53,13 +55,26 @@ ft_strjoin.c\
 ft_strtrim.c\
 ft_strmapi.c\
 ft_striteri.c\
-ft_split.c
+ft_split.c\
+ft_lstclear.c\
+ft_lstiter.c
+
+BONUS_C_FILES = ft_lstnew.c\
+ft_lstadd_front.c\
+ft_lstsize.c\
+ft_lstlast.c\
+ft_lstadd_back.c\
+ft_lstdelone.c
 
 C_FOLDER = ./
 
 C_LOC = ${addprefix ${C_FOLDER}, ${C_FILES}}
 
+BONUS_C_LOC = ${addprefix ${C_FOLDER}, ${BONUS_C_FILES}}
+
 O_FILES = ${C_LOC:.c=.o}
+
+BONUS_O_FILES = ${BONUS_C_LOC:.c=.o}
 
 .c.o:
 	${CC} ${C_FLAGS} $< -o ${<:.c=.o}
@@ -67,12 +82,13 @@ O_FILES = ${C_LOC:.c=.o}
 ${LIB_NAME}: ${O_FILES}
 	${AR} ${AR_FLAGS} ${LIB_NAME} ${O_FILES}
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
 
 all: ${LIB_NAME}
 
 clean:
-	rm -f ${O_FILES}
+	rm -f ${O_FILES} ${BONUS_O_FILES}
+	@rm -rf .bonus
 
 fclean:
 	make clean
@@ -82,3 +98,8 @@ re:
 	make fclean
 	make all
 
+bonus: .bonus
+
+.bonus: ${O_FILES} ${BONUS_O_FILES}
+	${AR} ${BONUS_AR_FLAGS} ${LIB_NAME} ${O_FILES} ${BONUS_O_FILES}
+	@touch .bonus
