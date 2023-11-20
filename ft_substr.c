@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:43:25 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/05 09:35:00 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:32:58 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (s == NULL)
 		return (NULL);
 	substr_len = len;
-	if (start > ft_strlen(s))
-		substr_len = 0;
 	if ((ft_strlen(s) - start) < len)
 		substr_len = (ft_strlen(s) - start);
+	if (start > ft_strlen(s))
+		substr_len = 0;
 	substr = malloc(substr_len + 1);
 	if (substr == NULL)
 		return (NULL);
-	while (s[start] != '\0' && len != 0 && start < ft_strlen(s))
+	while (start < ft_strlen(s) && s[start] != '\0' && len != 0)
 	{
 		substr[i++] = s[start++];
 		len--;
