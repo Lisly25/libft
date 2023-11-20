@@ -6,100 +6,82 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 11:59:07 by skorbai           #+#    #+#              #
-#    Updated: 2023/11/08 17:06:22 by skorbai          ###   ########.fr        #
+#    Updated: 2023/11/20 12:14:26 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc -c
-
 C_FLAGS = -Wall -Wextra -Werror
 
-AR = ar
+SRCS = ft_atoi.c \
+	   		ft_bzero.c \
+	   		ft_calloc.c \
+	   		ft_isalnum.c	\
+	   		ft_isalpha.c	\
+	   		ft_isascii.c	\
+	   		ft_isdigit.c	\
+	   		ft_isprint.c	\
+   	   		ft_itoa.c \
+	   		ft_memchr.c \
+	   		ft_memcmp.c	\
+	   		ft_memcpy.c	\
+	   		ft_memmove.c	\
+	   		ft_memset.c	\
+	   		ft_putchar_fd.c \
+   	   		ft_putendl_fd.c \
+   	   		ft_putnbr_fd.c \
+	   		ft_putstr_fd.c \
+	   		ft_split.c \
+   	   		ft_strlcat.c \
+	   		ft_strlcpy.c	\
+	   		ft_strjoin.c	\
+	   		ft_strrchr.c \
+   	   		ft_strlen.c \
+	   		ft_strchr.c	\
+	   		ft_strdup.c	\
+	   		ft_striteri.c \
+   	   		ft_strnstr.c \
+	   		ft_strncmp.c \
+	   		ft_strmapi.c	\
+	   		ft_strtrim.c \
+	   		ft_substr.c \
+	   		ft_toupper.c \
+	   		ft_tolower.c 
 
-AR_FLAGS = -rs
+OBJS = $(SRCS:.c=.o)
 
-BONUS_AR_FLAGS = -rus
+BONUS_SRCS = ft_lstnew_bonus.c \
+				ft_lstadd_front_bonus.c \
+				ft_lstsize_bonus.c \
+				ft_lstlast_bonus.c \
+				ft_lstadd_back_bonus.c \
+				ft_lstdelone_bonus.c \
+				ft_lstclear_bonus.c \
+				ft_lstiter_bonus.c \
 
-LIB_NAME = libft.a
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+NAME = libft.a
 
-C_FILES = ft_isalpha.c\
-ft_isdigit.c\
-ft_isalnum.c\
-ft_isascii.c\
-ft_isprint.c\
-ft_strlen.c\
-ft_toupper.c\
-ft_tolower.c\
-ft_strncmp.c\
-ft_memset.c\
-ft_bzero.c\
-ft_strchr.c\
-ft_strrchr.c\
-ft_strnstr.c\
-ft_memcpy.c\
-ft_memchr.c\
-ft_memcmp.c\
-ft_memmove.c\
-ft_strdup.c\
-ft_atoi.c\
-ft_putchar_fd.c\
-ft_putstr_fd.c\
-ft_putendl_fd.c\
-ft_putnbr_fd.c\
-ft_itoa.c\
-ft_strlcpy.c\
-ft_strlcat.c\
-ft_calloc.c\
-ft_substr.c\
-ft_strjoin.c\
-ft_strtrim.c\
-ft_strmapi.c\
-ft_striteri.c\
-ft_split.c\
-ft_lstclear.c\
-ft_lstiter.c
+all: $(NAME)
 
-BONUS_C_FILES = ft_lstnew.c\
-ft_lstadd_front.c\
-ft_lstsize.c\
-ft_lstlast.c\
-ft_lstadd_back.c\
-ft_lstdelone.c
+$(NAME) : $(OBJS)
+	ar -rc $(NAME) $(OBJS)
 
-C_FOLDER = ./
+bonus : .bonus
 
-C_LOC = ${addprefix ${C_FOLDER}, ${C_FILES}}
+.bonus : $(OBJS) $(BONUS_OBJS)
+	ar -rus $(NAME) $(OBJS) $(BONUS_OBJS)
+	@touch .bonus
 
-BONUS_C_LOC = ${addprefix ${C_FOLDER}, ${BONUS_C_FILES}}
-
-O_FILES = ${C_LOC:.c=.o}
-
-BONUS_O_FILES = ${BONUS_C_LOC:.c=.o}
-
-.c.o:
-	${CC} ${C_FLAGS} $< -o ${<:.c=.o}
-
-${LIB_NAME}: ${O_FILES}
-	${AR} ${AR_FLAGS} ${LIB_NAME} ${O_FILES}
-
-.PHONY: all clean fclean re bonus
-
-all: ${LIB_NAME}
+%.o: %.c
+	cc $(C_FLAGS) -c $< -o $@
 
 clean:
-	rm -f ${O_FILES} ${BONUS_O_FILES}
+	rm -f $(OBJS) $(BONUS_OBJS)
 	@rm -rf .bonus
 
-fclean:
-	make clean
-	rm -f ${LIB_NAME}
+fclean: clean
+	rm -f $(NAME)
 
-re:
-	make fclean
-	make all
+re: fclean all
 
-bonus: .bonus
-
-.bonus: ${O_FILES} ${BONUS_O_FILES}
-	${AR} ${BONUS_AR_FLAGS} ${LIB_NAME} ${O_FILES} ${BONUS_O_FILES}
-	@touch .bonus
+.PHONY: all clean fclean re bonus
