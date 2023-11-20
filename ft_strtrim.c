@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 17:05:59 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/07 14:52:30 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:36:02 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,12 @@ char	*ft_strtrim(const char *s1, const char *set)
 	int		j;
 	int		back_tr;
 
+	if (ft_strlen(set) == 0 || ft_strlen(s1) == 0)
+		return (ft_strdup(s1));
 	back_tr = n_trim_from_back(s1, set);
 	result = malloc(strim_strlen(s1, set, back_tr) + 1);
+	if (result == NULL)
+		return (NULL);
 	i = 0;
 	j = 0;
 	if (s1[i] != '\0')
