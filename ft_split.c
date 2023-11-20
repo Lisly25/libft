@@ -6,12 +6,13 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:41:17 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/07 15:04:52 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/20 15:16:41 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stddef.h>
+#include "libft.h"
 
 static int	count_frags(char const *s, char c)
 {
@@ -20,6 +21,10 @@ static int	count_frags(char const *s, char c)
 
 	i = 0;
 	count = 1;
+	while (s[i] != '\0' && s[i] == c)
+		i++;
+	if (i == (int)ft_strlen(s))
+		return (0);
 	while (s[i] != '\0')
 	{
 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0' && i != 0)
@@ -63,6 +68,17 @@ static char	*split_strdup(char const *s, char c, int j)
 	return (copy);
 }
 
+char	**free_and_null(char **result)
+{
+	int	i;
+
+	i = 0;
+	while (result[i] != NULL)
+		free(result[i++]);
+	free(result);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
@@ -78,7 +94,10 @@ char	**ft_split(char const *s, char c)
 	{
 		if (s[i] != c)
 		{
-			result[j++] = split_strdup(s, c, i);
+			result[j] = split_strdup(s, c, i);
+			if (result[j] == NULL)
+				return (free_and_null(result));
+			j++;
 			while (s[i] != c && s[i] != '\0')
 				i++;
 		}
