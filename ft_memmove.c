@@ -6,41 +6,51 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:20 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/06 16:47:09 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/20 17:13:21 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	do_strs_overlap(char *dst, char *src)
+static size_t	unsign_len(unsigned char *s)
 {
-	if (dst + ft_strlen(dst) == src + ft_strlen(src))
+	size_t			i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+static int	do_strs_overlap(unsigned char *dst, unsigned char *src)
+{
+	if (dst + unsign_len(dst) == src + unsign_len(src))
 		return (1);
 	return (0);
 }
 
-static	void	*overlap_memmove(char *dst, char *src, size_t len)
+static void	*overlap_memmove(unsigned char *dst, unsigned char *src, size_t len)
 {
-	size_t	i;
-
-	i = 0;
-	if (ft_strlen(src) < ft_strlen(dst))
+	if (unsign_len(src) < unsign_len(dst))
 	{
 		while (len != 0)
 		{
-			dst[i] = src[i];
+			*dst = *src;
 			len--;
-			i++;
+			dst++;
+			src++;
 		}
 	}
 	else
 	{
-		i = len - 1;
+		dst = dst + (len - 1);
+		src = src + (len - 1);
 		while (len != 0)
 		{
-			dst[i] = src[i];
+			*dst = *src;
 			len--;
-			i--;
+			dst--;
+			src--;
 		}
 	}
 	return (dst);
@@ -48,22 +58,25 @@ static	void	*overlap_memmove(char *dst, char *src, size_t len)
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	char	*buffer_d;
-	char	*buffer_s;
+	unsigned char	*buffer_d;
+	unsigned char	*buffer_s;
 
-	buffer_s = (char *) src;
-	buffer_d = (char *) dst;
+	buffer_s = (unsigned char *) src;
+	buffer_d = (unsigned char *) dst;
+	if ((src == NULL && dst == NULL) || len == 0)
+		return (dst);
 	if (do_strs_overlap(buffer_d, buffer_s) == 1)
 		overlap_memmove(buffer_d, buffer_s, len);
 	else
 	{
-		i = len - 1;
+		buffer_d = buffer_d + (len - 1);
+		buffer_s = buffer_s + (len - 1);
 		while (len != 0)
 		{
-			buffer_d[i] = buffer_s[i];
+			*buffer_d = *buffer_s;
 			len--;
-			i--;
+			buffer_d--;
+			buffer_s--;
 		}
 	}
 	return (dst);
