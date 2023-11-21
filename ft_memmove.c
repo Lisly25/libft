@@ -6,11 +6,11 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:08:20 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/21 10:36:27 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:16:05 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stddef.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {

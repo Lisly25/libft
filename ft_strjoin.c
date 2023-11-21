@@ -6,11 +6,10 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:47:09 by skorbai           #+#    #+#             */
-/*   Updated: 2023/10/31 17:02:35 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:21:06 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 char	*ft_strjoin(char const *pre_s, char const *suf_s)

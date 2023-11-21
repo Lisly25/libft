@@ -6,11 +6,10 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 09:48:01 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/05 09:08:23 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:25:43 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 static	int	is_c_included(char *str, int c)

@@ -6,11 +6,10 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:43:25 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/20 14:32:58 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:26:40 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

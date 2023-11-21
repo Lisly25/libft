@@ -6,11 +6,10 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 15:17:27 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/07 12:49:41 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:24:46 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
 static int	is_all_of_needle(char *h_stack, const char *n, size_t len)

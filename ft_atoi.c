@@ -6,13 +6,11 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 17:10:02 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/07 16:44:39 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/21 11:03:30 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <limits.h>
-#include <stdio.h>
 
 static int	str_to_num(char *str, int i, int is_neg)
 {
