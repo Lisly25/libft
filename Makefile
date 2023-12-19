@@ -6,7 +6,7 @@
 #    By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 11:59:07 by skorbai           #+#    #+#              #
-#    Updated: 2023/11/20 12:14:26 by skorbai          ###   ########.fr        #
+#    Updated: 2023/12/19 11:00:07 by skorbai          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,6 +57,7 @@ BONUS_SRCS = ft_lstnew_bonus.c \
 				ft_lstdelone_bonus.c \
 				ft_lstclear_bonus.c \
 				ft_lstiter_bonus.c \
+				ft_lstmap_bonus.c
 
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 NAME = libft.a

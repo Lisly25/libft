@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:04:51 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/08 15:55:12 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/11/20 15:48:41 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 	if (lst != NULL)
 		if (lst->content != NULL)
 			del(lst->content);
-	free(lst);
+	free (lst);
 }

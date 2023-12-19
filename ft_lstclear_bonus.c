@@ -6,7 +6,7 @@
 /*   By: skorbai <skorbai@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 16:05:19 by skorbai           #+#    #+#             */
-/*   Updated: 2023/11/20 15:57:37 by skorbai          ###   ########.fr       */
+/*   Updated: 2023/12/19 11:39:20 by skorbai          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	t_list	*next_node;
 	t_list	*copy_of_lst;
 
+	if (lst == NULL || *lst == NULL || del == NULL)
+		return ;
 	copy_of_lst = *lst;
-	while (copy_of_lst != NULL)
+	next_node = copy_of_lst->next;
+	while (next_node != NULL)
 	{
 		next_node = copy_of_lst->next;
-		del(copy_of_lst->content);
-		free(copy_of_lst);
+		ft_lstdelone(copy_of_lst, del);
 		copy_of_lst = next_node;
 	}
+	ft_lstdelone(copy_of_lst, del);
 	*lst = NULL;
 }
