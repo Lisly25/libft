@@ -174,21 +174,21 @@ ft_printf was a project at Hive Helsinki that came after libft, but we were allo
 
 It does NOT implement:
 
-the buffer management of the original
-the flags
-the minimum field width
+- the buffer management of the original
+- the flags
+- the minimum field width
 
 What it DOES implement is variadic arguments, and the following conversions:
 
-%c for single characters
-%s for strings
-%p for void pointers (prints it in hexadecimal format)
-%i for integers
-%d for decimal (base 10) numbers
-%u for unsigned decimal (base 10) numbers
-%x for printing numbers in hexadecimal (base16) lowercase format
-%X for printing numbers in hexadecimal (base16) uppercase format
-%% prints a single percent sign
+- %c for single characters
+- %s for strings
+- %p for void pointers (prints it in hexadecimal format)
+- %i for integers
+- %d for decimal (base 10) numbers
+- %u for unsigned decimal (base 10) numbers
+- %x for printing numbers in hexadecimal (base16) lowercase format
+- %X for printing numbers in hexadecimal (base16) uppercase format
+- %% prints a single percent sign
 
 **PART V. - GET_NEXT_LINE**
 
