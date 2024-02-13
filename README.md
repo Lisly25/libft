@@ -8,6 +8,10 @@ Part II - Some other functions, mostly concerning strings and writing into files
 
 Part III - Bonus exercises, with functions manipulating linked lists
 
+Part IV. - Ft_printf - a whole other project of its own, my own version of printf
+
+Part V. - get_next_line - another entire project, this function is capable of reading a file line by line, using a buffer size that can be set
+
 A Makefile and a libft.h header file containing all the functions' prototypes are also included.
 
 ******HOW TO USE******
