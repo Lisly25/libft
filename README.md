@@ -18,12 +18,11 @@ A Makefile and a libft.h header file containing all the functions' prototypes ar
 
 0. Clone the repository
 
-1. If you only need the functions contained in Part I and II, run the command "make", which will compile a libft.a library.
-If you also want to use functions from Part III, use the command "make bonus" instead: in that case, the libft.a library being compiled will contain all the functions from all three parts.
+1. Run the command "make"
 
 2. Include the libft.h header in your own files if you want to use any of the functions (#include "libft.h")
 
-3. Compile (note that this is assuming you have all your files in the same folder):
+3. Compile (note that this is assuming you have all your files in the same folder as libft.a):
 
 cc your_file.c libft.a
 
@@ -167,5 +166,36 @@ ft_lstiter:
 - iterates through linked list "lst", calling the function "f" on every node
 
 ft_lstmap:
+- iterates through the linked list "lst" and calls the function "f" on each node. Creates a new linked list, which contains the return values from "f"'s application. The "del" function is used to delete the content of a node if needed.
 
+**PART IV. - FT_PRINTF**
 
+ft_printf was a project at Hive Helsinki that came after libft, but we were allowed to add it to our libft afterwards. Its goal was to recreate the library function printf, though in a simplified manner.
+
+It does NOT implement:
+
+the buffer management of the original
+the flags
+the minimum field width
+
+What it DOES implement is variadic arguments, and the following conversions:
+
+%c for single characters
+%s for strings
+%p for void pointers (prints it in hexadecimal format)
+%i for integers
+%d for decimal (base 10) numbers
+%u for unsigned decimal (base 10) numbers
+%x for printing numbers in hexadecimal (base16) lowercase format
+%X for printing numbers in hexadecimal (base16) uppercase format
+%% prints a single percent sign
+
+**PART V. - GET_NEXT_LINE**
+
+get_next_line was also a project at Hive Helsinki that came after libft, but we were allowed to add it to our libft afterwards as well.
+
+It can be used to read from a file descriptor one line at a time, allowing the whole file to be read if it is used in a loop. The buffer size - the number of characters to be read at once - can be modified either by changing the macro BUFFER_SIZE within libft.h or at compilation through using the -D flag. For example:
+
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 your_file.c
+
+The buffer size must be a positive number larger than zero, but otherwise the value it is set to does not affect what line is returned.
